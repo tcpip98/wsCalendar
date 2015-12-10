@@ -6,7 +6,7 @@ Generals
 The wsCalendar is a jQuery plugin that provides datepicking features. It is easy to use and includes bunch of useful functions.
 
 
-How to use
+How to use( Introduce )
 --------------------------------------
 ```initiate
 	...
@@ -29,3 +29,11 @@ How to use
 		</div>
 	...
 ```
+
+
+Features
+-------------------------------------
+
+  > Options
+  
+  > Customizing date format
