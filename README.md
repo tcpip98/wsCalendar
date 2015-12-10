@@ -39,6 +39,17 @@ The following code fragments shows two types of it.
 ...
 ```
 
+The following images are rendering results of the code fragments above.
+
+
+- Range selection
+
+  ![Range Selection](/docs/images/range-selection-sample-1.gif)
+
+
+- Single Pick
+
+  ![Single Pick](/docs/images/single-pick-sample-1.gif)
 
 
 
