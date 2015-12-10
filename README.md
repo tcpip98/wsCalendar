@@ -12,6 +12,8 @@ Any number of plain HTML input text elements can be wrapped into single div elem
 The wsCalendar will convert them into the wsCalendar's styled input elements.
 
 The following code fragments shows two types of it.
+   1. Range Selection
+   2. Single Pick
 
 ```html
 ...
@@ -25,15 +27,20 @@ The following code fragments shows two types of it.
 </script>
 ...
 <body>
+    <!-- Range selection -->
     <div class="ws-datepicker">
         <input name="dateFrom" type="text" value="2015-12-09"> ~ <input name="dateTo" type="text" value="2015-12-31">
     </div>
 
+    <!-- Single pick -->
     <div class="ws-datepicker">
         <input name="myBirthDay" type="text" value="1921-10-22">
     </div>
 ...
 ```
+
+
+
 
 ##Features
 -------------------------------------
