@@ -34,7 +34,7 @@ The following code fragments shows two types of it.
 
     <!-- Single pick -->
     <div class="ws-datepicker">
-        <input name="myBirthDay" type="text" value="1921-10-22">
+        <input name="myBirthDay" type="text" value="2010-10-22">
     </div>
 ...
 ```
