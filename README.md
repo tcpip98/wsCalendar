@@ -1,2 +1,7 @@
-# wsCalendar
-Remote git repository for wsCalendar
+# wsCalendar ( Useful datepicker as jQuery Plugin )
+==================================================
+
+To be developed...
+--------------------------------------
+
+```Test
