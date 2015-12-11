@@ -97,8 +97,10 @@ The customizable options can be modified when contruction-time via parameters.
     User can customize images by change option key-value pair when contruct.  
     In general, just define your own image-base-url( eg. "./images" ).  
     ( Some of the case, CSS definition has to be changed. )  
-    * option key : image-base-url, icon-picker, icon-remover, icon-close, icon-input-locked, icon-locked  
-                 , icon-today, icon-prev-month, icon-next-month, bg-img-readonly-cover, bg-img-footer
+    * option key : image-base-url
+                 , icon-picker, icon-remover, icon-close, icon-input-locked, icon-locked
+                 , icon-today, icon-prev-month, icon-next-month
+                 , bg-img-readonly-cover, bg-img-footer
     * option vlaue : image file name( eg. "my-calendaer-image.gif" )
     
 ####Input-filter
@@ -106,7 +108,8 @@ The customizable options can be modified when contruction-time via parameters.
     So, if you want to use another date format, you can simply override converting filter function when construct.  
     In case of this, you have to override output-filter as well.
     * option key : input-filter
-    * option value : funtion definition( must return YYYY-MM-DD formatted date string object from YYYY-MM-DD formatted string. )
+    * option value : funtion definition
+                      ( must return YYYY-MM-DD formatted date string object from YYYY-MM-DD formatted string. )
     * option value example code :
 ```javascript
    // When date format is YYYY.MM.DD
@@ -120,7 +123,8 @@ The customizable options can be modified when contruction-time via parameters.
     As metioned in input-filter description, the wsCalendar produces YYYY-MM-DD format originally.  
     So, if you overrided input filter, you have to override output-filter also.  
     * option key : output-filter
-    * option value : function definition( must return your own date format string from YYYY-MM-DD formatted string object. )
+    * option value : function definition
+                      ( must return your own date format string from YYYY-MM-DD formatted string object. )
     * option value example code :
 ```javascript
    // When date format is YYYY.MM.DD
