@@ -1,42 +1,42 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<link rel="stylesheet" type="text/css" href="./css/ws-calendar.default.css" />
-		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-		<script type="text/javascript" src="./js/ws-calendar.1.0-min.js"></script>
-		<script type="text/javascript">
-			$( function() {
-				$( ".ws-datepicker" ).each( function() {
-					$( this ).wsCalendar({ editable: true
-						                 //, "input-filter" : function( inputValue ) {
-						                 //						return inputValue.replace( /[\.]/g, "-" );
-						                 //					}
-						                 //, "output-filter" : function( wsFormattedDateString ) {
-						                 //						return wsFormattedDateString.replace( /[-]/g, "." );
-						                 //					}
-						                 });
-				});
+    <head>
+        <link rel="stylesheet" type="text/css" href="./css/ws-calendar.default.css" />
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="./js/ws-calendar.1.0-min.js"></script>
+        <script type="text/javascript">
+            $( function() {
+                $( ".ws-datepicker" ).each( function() {
+                    $( this ).wsCalendar({ editable: true
+                                         //, "input-filter" : function( inputValue ) {
+                                         //                        return inputValue.replace( /[\.]/g, "-" );
+                                         //                    }
+                                         //, "output-filter" : function( wsFormattedDateString ) {
+                                         //                        return wsFormattedDateString.replace( /[-]/g, "." );
+                                         //                    }
+                                         });
+                });
 
-			});
-		</script>
-	</head>
-	<body>
-		<br><br>
-		<!-- Range Selection -->
-		<div class="ws-datepicker">
-			<input name="dateFrom" type="text" value="2015-12-09">
-			 ~ <input name="dateTo" type="text" value="2015-12-31">
-		</div><br><br>
-
-		<!-- Auto Dimming -->
-		<div class="ws-datepicker">
-			<input name="dateBegin" type="text" value="2015-12-09" readonly>
-			 ~ <input name="dateEnd" type="text" value="2015-12-31">
-		</div><br><br>
-
-		<!-- Single Pick -->
-		<div class="ws-datepicker">
-			<input name="myBirthDay" type="text" value="2015-10-22">
-		</div>
-	</body>
+            });
+        </script>
+    </head>
+    <body>
+        <br><br>
+    <!-- Range Selection -->
+    <div class="ws-datepicker">
+        <input name="dateFrom" type="text" value="2015-12-09">
+         ~ <input name="dateTo" type="text" value="2015-12-31">
+    </div><br><br>
+    
+    <!-- Auto Dimming -->
+    <div class="ws-datepicker">
+        <input name="dateBegin" type="text" value="2015-12-09" readonly>
+         ~ <input name="dateEnd" type="text" value="2015-12-31">
+    </div><br><br>
+    
+    <!-- Single Pick -->
+    <div class="ws-datepicker">
+        <input name="myBirthDay" type="text" value="2010-10-22">
+    </div>
+    </body>
 </html>
