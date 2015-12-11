@@ -3,16 +3,11 @@
 	<head>
 		<link rel="stylesheet" type="text/css" href="./css/ws-calendar.default.css" />
 		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-		<!--
-		<script type="text/javascript" src="./js/moment.js/moment.min.js"></script>
-		-->
 		<script type="text/javascript" src="./js/ws-calendar.1.0-min.js"></script>
 		<script type="text/javascript">
 			$( function() {
 				$( ".ws-datepicker" ).each( function() {
 					$( this ).wsCalendar({ editable: true
-						                 , "day-names-array": [ "일", "월", "화", "수", "목", "금", "토" ]
-						                 , "confirm-text": "확인"
 						                 //, "input-filter" : function( inputValue ) {
 						                 //						return inputValue.replace( /[\.]/g, "-" );
 						                 //					}
@@ -21,28 +16,27 @@
 						                 //					}
 						                 });
 				});
-/*
-				$.getScript( "/js/moment.js/moment.min.js", function() {
-					console.log( "Moment is loaded." );
-				});
 
-				console.log( moment().format() );
-*/
 			});
 		</script>
 	</head>
 	<body>
 		<br><br>
+		<!-- Range Selection -->
 		<div class="ws-datepicker">
-			<input name="calFrom" type="text" value="2015-12-09">
-			 ~ <input name="calTo" type="text" value="2015-12-31">
+			<input name="dateFrom" type="text" value="2015-12-09">
+			 ~ <input name="dateTo" type="text" value="2015-12-31">
 		</div><br><br>
 
+		<!-- Auto Dimming -->
 		<div class="ws-datepicker">
-			<input name="calSample" type="text" value="2010-02-15">
-		</div>
+			<input name="dateBegin" type="text" value="2015-12-09" readonly>
+			 ~ <input name="dateEnd" type="text" value="2015-12-31">
+		</div><br><br>
+
+		<!-- Single Pick -->
 		<div class="ws-datepicker">
-			<input name="calSample" type="text" value="">
+			<input name="myBirthDay" type="text" value="2015-10-22">
 		</div>
 	</body>
 </html>
