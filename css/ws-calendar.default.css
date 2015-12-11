@@ -20,18 +20,8 @@ div.ws-datepicker {
 	vertical-align: middle;
 	text-align: left;
 }
-
-
-div.ws-datepicker.picker-activated a.ws-calendar-asymetric-function-switch {
-	visibility: hidden;
-	/* display: none; */
-}
-
-div.ws-datepicker input {
-	font-size: 12px;
-	height: 21px;
-	width: 95px;
-}
+div.ws-datepicker input { font-size: 12px; height: 21px; width: 95px; }
+div.ws-datepicker.picker-activated a.ws-calendar-asymetric-function-switch { visibility: hidden; }
 
 div.ws-calendar {
 	position: absolute;
