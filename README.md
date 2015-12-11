@@ -94,7 +94,7 @@ Automatically transform plain text input fields to CSS styled composite input fi
   
 ##Customizable Options
 -------------------------------------
-All of customizable options could be combinated when construct the wsCalendar.
+All of customizable options could be combined when construct the wsCalendar.
   
   
 ####Changing icon images
