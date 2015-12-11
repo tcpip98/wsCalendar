@@ -82,62 +82,82 @@ __wsCalendar__ is a sort of plug-in of jQuery. So construction could be done lik
 __wsCalendar__ has some of customizable options and built-in options which are user can not modifying.
 The customizable options can be modified when contruction-time via parameters.
 
-  > Built-in features
+###Built-in features
   
-    - Auto Dimming  
-      Automatically block user actions for readonly input fields.  
+####Auto Dimming  
+    Automatically block user actions for readonly input fields.  
     
-    - Auto input field style transformation
-      Automatically transform plain text input fields to CSS styled composite input fields.
+####Auto input field style transformation
+    Automatically transform plain text input fields to CSS styled composite input fields.
     
 
-  > Cusomizable Options
+###Cusomizable Options
   
-    - Changing icon images
-      User can customize images by change option key-value pair when contruct.  
-      In general, just define your own image-base-url( eg. "./images" ).  
-      ( Some of the case, CSS definition has to be changed. )  
-      * option key : image-base-url, icon-picker, icon-remover, icon-close, icon-input-locked, icon-locked  
-                   , icon-today, icon-prev-month, icon-next-month, bg-img-readonly-cover, bg-img-footer
-      * option vlaue : image file name( eg. "my-calendaer-image.gif" )
+####Changing icon images
+    User can customize images by change option key-value pair when contruct.  
+    In general, just define your own image-base-url( eg. "./images" ).  
+    ( Some of the case, CSS definition has to be changed. )  
+    * option key : image-base-url, icon-picker, icon-remover, icon-close, icon-input-locked, icon-locked  
+                 , icon-today, icon-prev-month, icon-next-month, bg-img-readonly-cover, bg-img-footer
+    * option vlaue : image file name( eg. "my-calendaer-image.gif" )
     
-    - Input-filter
-      The wsCalendar using YYYY-MM-DD format internally.  
-      So, if you want to use another date format, you can simply define converting filter function when construct.
-      * option key : input-filter
-      * option value : funtion definition( must return YYYY-MM-DD formatted date string object )
-      * option value example code :
+####Input-filter
+    The wsCalendar using YYYY-MM-DD format internally.  
+    So, if you want to use another date format, you can simply override converting filter function when construct.  
+    In case of this, you have to override output-filter as well.
+    * option key : input-filter
+    * option value : funtion definition( must return YYYY-MM-DD formatted date string object from YYYY-MM-DD formatted string. )
+    * option value example code :
 ```javascript
    // When date format is YYYY.MM.DD
-   $( "div.ws-datepicker" ).wsCalender({ "input-filter" : function( userInput ) {
+   $( "div.ws-datepicker" ).wsCalender({ "input-filter" : function( inputValue ) {
                                                               return inputValue.replace( /[\.]/g, "-" );
                                                           }
                                       });
 ```
+
+####Output-filter
+    As metioned in input-filter description, the wsCalendar produces YYYY-MM-DD format originally.  
+    So, if you overrided input filter, you have to override output-filter also.  
+    * option key : output-filter
+    * option value : function definition( must return your own date format string from YYYY-MM-DD formatted string object. )
+    * option value example code :
+```javascript
+   // When date format is YYYY.MM.DD
+   $( "div.ws-datepicker" ).wsCalender({ "output-filter" : function( wsFormattedDateString ) {
+                                                              return wsFormattedDateString.replace( /[-]/g, "." );
+                                                          }
+                                      });
+```
+
+####Day offset marker
+    When there are two or more input fields, the wsCalendar turns into the range selection mode.  
+    In this case, wsCalendar shows date offset marker that indicates days between two dates on calendars.  
+    This day-offset-marker not only shows offset between dates, but also directly jump to specific date after user input.  
+    This option switch enable and disable this option. Default value if true.
+    * option key : day-offset-marker
+    * option value : true / false
+
+####Day offset begin
     
-    - Output-filter
-    
-    - Day offset marker
-    
-    - Day offset begin
-    
-    - Calendar Tip
-    
-    - Prevent inversion of dates
-    
-    - Customizing confirm text
-    
-    - Customizing day names
-    
-    - Customizing colors of days
-    
-    - Minimum value of year
-    
-    - Maximum value of year
-    
-    - Input field editable
-    
-    - Arrow key enabled
+
+####Calendar Tip
+
+####Prevent inversion of dates
+
+####Customizing confirm text
+
+####Customizing day names
+
+####Customizing colors of days
+
+####Minimum value of year
+
+####Maximum value of year
+
+####Input field editable
+
+####Arrow key enabled
     
   
   
