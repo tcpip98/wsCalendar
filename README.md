@@ -11,13 +11,14 @@ The wsCalendar is a jQuery plugin that provides datepicking features. It is easy
 Any number of plain HTML input text elements can be wrapped into single div element with CSS class name of __'ws-datepicker'__.
 The wsCalendar will convert them into the wsCalendar's styled input elements.
 
-The following code fragments shows two types of it.
+The following code fragments demonstrate three usages of it.
    1. Range Selection
    2. Auto Dimming
    3. Single Pick
 
 ```html
 ...
+<link rel="stylesheet" type="text/css" href="./css/ws-calendar.default.css" />
 <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="./js/ws-calendar.1.0-min.js"></script>
 ...
@@ -64,10 +65,79 @@ The following images are rendering results of the code fragments above.
   ![Single Pick](/docs/images/single-pick-sample-1.gif)
 
 
+##Construction
+-------------------------------------
+__wsCalendar__ is a sort of plug-in of jQuery. So construction could be done like below.
+```javascript
+<script type="text/javascript">
+    $( "div.ws-datepicker" ).wsCalendar();
+    // or
+    $( "div.ws-datepicker" ).wsCalendar( { /* options.. */ } );
+</script>
+```
+
 
 ##Features
 -------------------------------------
+__wsCalendar__ has some of customizable options and built-in options which are user can not modifying.
+The customizable options can be modified when contruction-time via parameters.
 
-  > Options
+  > Built-in features
   
-  > Customizing date format
+    - Auto Dimming  
+      Automatically block user actions for readonly input fields.  
+    
+    - Auto input field style transformation
+      Automatically transform plain text input fields to CSS styled composite input fields.
+    
+
+  > Cusomizable Options
+  
+    - Changing icon images
+      User can customize images by change option key-value pair when contruct.  
+      In general, just define your own image-base-url( eg. "./images" ).  
+      ( Some of the case, CSS definition has to be changed. )  
+      * option key : image-base-url, icon-picker, icon-remover, icon-close, icon-input-locked, icon-locked  
+                   , icon-today, icon-prev-month, icon-next-month, bg-img-readonly-cover, bg-img-footer
+      * option vlaue : image file name( eg. "my-calendaer-image.gif" )
+    
+    - Input-filter
+      The wsCalendar using YYYY-MM-DD format internally.  
+      So, if you want to use another date format, you can simply define converting filter function when construct.
+      * option key : input-filter
+      * option value : funtion definition( must return YYYY-MM-DD formatted date string object )
+      * option value example code :
+```javascript
+   // When date format is YYYY.MM.DD
+   $( "div.ws-datepicker" ).wsCalender({ "input-filter" : function( userInput ) {
+                                                              return inputValue.replace( /[\.]/g, "-" );
+                                                          }
+                                      });
+```
+    
+    - Output-filter
+    
+    - Day offset marker
+    
+    - Day offset begin
+    
+    - Calendar Tip
+    
+    - Prevent inversion of dates
+    
+    - Customizing confirm text
+    
+    - Customizing day names
+    
+    - Customizing colors of days
+    
+    - Minimum value of year
+    
+    - Maximum value of year
+    
+    - Input field editable
+    
+    - Arrow key enabled
+    
+  
+  
