@@ -15,7 +15,11 @@
   },
   "keywords": [
     "jquery-plugin",
-    "ecosystem:jquery"
+    "ecosystem:jquery",
+    "datepicker",
+    "calendar",
+    "javascript",
+    "jquery"
   ],
   "author": "Jake Wonsang Lee",
   "license": "MIT",
