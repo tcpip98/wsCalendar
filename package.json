@@ -1,5 +1,5 @@
 {
-  "name": "wscalendar-pkg",
+  "name": "wscalendar",
   "version": "1.0.0",
   "description": "The datepicker of jQuery plugin by jake Wonsang Lee.",
   "main": "ws-calendar.1.0.js",
