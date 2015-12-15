@@ -20,7 +20,7 @@ The following code fragments demonstrate three usages of it.
 ...
 <link rel="stylesheet" type="text/css" href="./css/ws-calendar.default.css" />
 <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-<script type="text/javascript" src="./js/ws-calendar.1.0-min.js"></script>
+<script type="text/javascript" src="./js/ws-calendar-min.js"></script>
 ...
 <script type="text/javascript">
     $( ".ws-datepicker" ).each( function() {
