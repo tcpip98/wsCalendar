@@ -11,7 +11,7 @@ The wsCalendar is a jQuery plugin that provides datepicking features. It is easy
 Any number of plain HTML input text elements can be wrapped into single div element with CSS class name of __'ws-datepicker'__.
 The wsCalendar will convert them into the wsCalendar's styled input elements.
 
-The following code fragments demonstrate three usages of it.
+The following code fragments demonstrates three usages of it.
    1. Range Selection
    2. Auto Dimming
    3. Single Pick
