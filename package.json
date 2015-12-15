@@ -1,8 +1,8 @@
 {
   "name": "wscalendar",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "The datepicker of jQuery plugin by jake Wonsang Lee.",
-  "main": "ws-calendar.1.0.js",
+  "main": "ws-calendar.js",
   "directories": {
     "doc": "docs"
   },
