@@ -2,12 +2,12 @@
   "name": "wscalendar",
   "version": "1.1.1",
   "description": "The datepicker of jQuery plugin by jake Wonsang Lee.",
-  "main": "ws-calendar.js",
+  "main": "./js/ws-calendar.js",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
-    "test": "$( this ).wsCalendar();"
+    "test": "$( 'div.ws-datepicker' ).wsCalendar();"
   },
   "repository": {
     "type": "git",
@@ -15,11 +15,15 @@
   },
   "keywords": [
     "jquery-plugin",
+    "jquery plugin",
     "ecosystem:jquery",
     "datepicker",
     "calendar",
     "javascript",
-    "jquery"
+    "jquery",
+    "jquery datepicker",
+    "jquery calendar",
+    "wsCalendar"
   ],
   "author": "Jake Wonsang Lee",
   "license": "MIT",
