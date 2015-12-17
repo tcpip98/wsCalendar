@@ -243,7 +243,7 @@
 		,				"<div class='ws-calendar-upper-tip'><img border='0' src='" + $( this )._ws_getImageURL( "_ws_wrapper_tip" ) + "'></div>"
 		,				"<div class='day-offset'>"
 		,					"<img class='day-offset' border='0' src='" + $( this )._ws_getImageURL( "_ws_tilde_prefix" ) + "' align='absmiddle'>"
-		,					"<input type='text' class='day-offset' value='?'"
+		,					"<input type='number' class='day-offset' value='?'"
 		,							" onkeydown='$( this )._ws_keyDownHandlerForDayOffset();'"
 		,							" onchange='$( this )._ws_chooseDateAfterOffset( $( this ) );'"
 		,					">"
@@ -360,6 +360,9 @@
 					  .find( "select.ws-calendar-year-selector" )
 					  .val( yearToChange )
 					  .change();
+
+			// Enable auto-commit when exists one calendar
+			$( this )._ws_registerAutoCommitHandler();
 		}
 	}
 
@@ -394,6 +397,8 @@
 		$( this )._ws_changeDaySelectorArea();
 		var calendar = userInput.closest( "div.ws-calendar-unit" );
 		$( this )._ws_preventInversionOfDate( calendar );
+		// Enable auto-commit when exists one calendar
+		$( this )._ws_registerAutoCommitHandler();
 	}
 
 
@@ -556,6 +561,9 @@
 		//var preventedDate = $( this )._ws_getChosenDate( targetCalendar )
 
 		$( this )._ws_chooseDay( currentCalendar, dayToPreserve, true );
+
+		// Enable auto-commit when exists one calendar
+		$( this )._ws_registerAutoCommitHandler();
 
 		return $( this );
 	}
