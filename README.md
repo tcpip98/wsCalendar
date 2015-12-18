@@ -60,16 +60,16 @@ The following images are rendering results of the code fragments above.
 
 - Range selection
 
-  ![Range Selection](/docs/images/range-selection-sample-1.gif)
+  ![Range Selection](https://github.com/tcpip98/wsCalendar/raw/master/docs/images/range-selection-sample-1.gif)
 
 - Auto Dimming
 
-  ![Auto Dimming](/docs/images/auto-dimming-sample-1.gif)
+  ![Auto Dimming](https://github.com/tcpip98/wsCalendar/raw/master/docs/images/auto-dimming-sample-1.gif)
 
 
 - Single Pick
 
-  ![Single Pick](/docs/images/single-pick-sample-1.gif)
+  ![Single Pick](https://github.com/tcpip98/wsCalendar/raw/master/docs/images/single-pick-sample-1.gif)
 
 
 ##Construction  
