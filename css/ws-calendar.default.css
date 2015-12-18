@@ -97,6 +97,7 @@ div.ws-calendar div.ws-calendar-placeholder {
 }
 
 div.ws-calendar-unit div.ws-calendar-info-wrapper div.day-offset img.day-offset {
+	display: none; /* deprecated */
 	margin: 0px 0px 0px -8px;
 }
 
@@ -124,7 +125,8 @@ div.ws-calendar-unit div.ws-calendar-info-wrapper div.day-offset input.day-offse
 	font-size: 10px;
 	padding: 0px;
 	margin: 2px 0px 0px 0px;
-	width: 30px;
+	/* width: 30px; */
+	width: 45px; /* Removing day-offset tilde */
 	height: 11px;
 	border-width: 0px;
 	text-align: right;

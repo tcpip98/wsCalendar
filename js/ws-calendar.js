@@ -1,8 +1,12 @@
 /*************************************************************************************************************
  * wsCalendar.js
  *
- *   Version : 1.1.0
+ *   Version : 1.2.0
  *   Author : Jake Wonsang Lee. ( mailto://tcpip98@gmail.com )
+ *
+ *   GitHub : https://github.com/tcpip98/wsCalendar
+ *   NPM : https://www.npmjs.com/package/wscalendar
+ *
  *   License :
  *      The MIT License (MIT)
  *
@@ -862,7 +866,7 @@
 			  "image-base-url" : "./images"
 			, "_ws_date_delimeter" : "-"
 			, "_ws_wrapper_tip" : "_private_ws_datepicker_tip.gif"
-			, "_ws_tilde_prefix" : "_private_ws_datepicker_tilde.gif"
+			//, "_ws_tilde_prefix" : "_private_ws_datepicker_tilde.gif"
 			, "icon-picker" : "btn_icon_ws_datepicker_picker_default.gif"
 			, "icon-remover" : "btn_icon_ws_datepicker_remover.gif"
 			, "icon-close" : "btn_icon_ws_datepicker_close.gif"
@@ -1079,7 +1083,7 @@
 					topMostObject._ws_hideCalendar( targetObjectId );
 				}
 			}
-		});
+		} );
 
 		return $( this );
 	};
@@ -1099,6 +1103,8 @@
 		// Enable auto-commit when exists one calendar
 		if( unitCalendars.length === 1 ) {
 			unitCalendars.find( "td.day-selector" ).on( "click", $( this )._ws_confirmChosenDate );
+		} else {
+			unitCalendars.find( "td.day-selector" ).off( "click", $( this )._ws_confirmChosenDate );
 		}
 
 		return $( this );
