@@ -5,6 +5,13 @@
 --------------------------------------
 The wsCalendar is a jQuery plugin that provides datepicking features. It is easy to use and includes bunch of useful functions.
 
+####Tested on  
+ - IE11( Older version of IE not tested. but I think this supports IE9+ )
+ - Chrome 47.x
+ - FireFox 43.0
+ - Opera 34.0
+ - Safari 5.1.7
+
 
 ##How to use( Introduce )  
 --------------------------------------
