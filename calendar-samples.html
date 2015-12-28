@@ -3,40 +3,29 @@
     <head>
         <link rel="stylesheet" type="text/css" href="./css/ws-calendar.default.min.css" />
         <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-        <script type="text/javascript" src="./js/ws-calendar-min.js"></script>
+        <script type="text/javascript" src="./js/ws-calendar.js"></script>
         <script type="text/javascript">
             $( function() {
-                $( ".ws-datepicker" ).each( function() {
-                    $( this ).wsCalendar({ editable: true
-                                         //, "input-filter" : function( inputValue ) {
-                                         //                        return inputValue.replace( /[\.]/g, "-" );
-                                         //                    }
-                                         //, "output-filter" : function( wsFormattedDateString ) {
-                                         //                        return wsFormattedDateString.replace( /[-]/g, "." );
-                                         //                    }
-                                         });
-                });
-
+                $( ".myOwnClass" ).wsCalendar();
             });
         </script>
     </head>
     <body>
-        <br><br>
-    <!-- Range Selection -->
-    <div class="ws-datepicker">
-        <input name="dateFrom" type="text" value="2015-12-09">
-         ~ <input name="dateTo" type="text" value="2015-12-31">
-    </div><br><br>
-    
-    <!-- Auto Dimming -->
-    <div class="ws-datepicker">
-        <input name="dateBegin" type="text" value="2015-12-09" readonly>
-         ~ <input name="dateEnd" type="text" value="2015-12-31">
-    </div><br><br>
-    
-    <!-- Single Pick -->
-    <div class="ws-datepicker">
-        <input name="myBirthDay" type="text" value="2010-10-22">
-    </div>
+        <!-- Range Selection -->
+        <div class="myOwnClass">
+            <input name="dateFrom" type="text" value="2015-12-09">
+             ~ <input name="dateTo" type="text" value="2015-12-31">
+        </div><br><br>
+        
+        <!-- Auto Dimming -->
+        <div class="myOwnClass">
+            <input name="dateBegin" type="text" value="2015-12-09" readonly>
+             ~ <input name="dateEnd" type="text" value="2015-12-31">
+        </div><br><br>
+        
+        <!-- Single Pick -->
+        <div class="myOwnClass">
+            <input name="myBirthDay" type="text" value="2010-10-22">
+        </div>
     </body>
 </html>

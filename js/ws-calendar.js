@@ -1,10 +1,11 @@
 /*************************************************************************************************************
  * wsCalendar.js
  *
- *   Version : 1.2.0
+ *   Version : 1.3.0
  *   Author : Jake Wonsang Lee. ( mailto://tcpip98@gmail.com )
  *
  *   GitHub : https://github.com/tcpip98/wsCalendar
+ *   GitPage : http://tcpip98.github.io/wsCalendar
  *   NPM : https://www.npmjs.com/package/wscalendar
  *
  *   License :
@@ -41,6 +42,7 @@
 	 */
 	$.fn.log = function( msg ) {
 		try {
+			console.log( [ "wsCalendar[", _ws_uuidSequence++, "] :" ].join( "" ) );
 			console.log( msg );
 		} catch( ex ) {
 			// Do nothing...
@@ -95,14 +97,14 @@
 
 		return dayOffset;
 	};
-	
-	
+
+
 	/*
 	 * Calculate day after offset.
 	 */
 	$.fn._ws_getDayAfterOffset = function( fromDate, dayOffset ) {
 		var theDay = fromDate;
-		
+
 		if( fromDate && fromDate.isValid() && !isNaN( dayOffset ) ) {
 			var offsetFactor = _ws_options[ "day-offset-begin" ];
 			theDay = $( this )._ws_getDate( fromDate.year, fromDate.month, ( fromDate.day + ( dayOffset - offsetFactor ) ), 0, 0, 0 );
@@ -110,7 +112,7 @@
 
 		return theDay;
 	}
-	
+
 
 	/*
 	 * Choose the day after offset on the calendar.
@@ -129,10 +131,10 @@
 				if( isNaN( offset ) ) {
 					offset = _ws_options[ "day-offset-begin" ];
 				}
-				
+
 				// Don't let the offset value smaller than day-offset-begin
 				offset = offset < min ? min : offset;
-	
+
 				$( this )._ws_chooseDate( $( this )._ws_getDayAfterOffset( prevDate, offset ), targetCalendarIndex );
 			} catch( ex ) {
 				// Do nothing...
@@ -153,7 +155,7 @@
 				$( this )._ws_chooseDateAfterOffset( offsetObject );
 				event.preventDefault();
 				break;
-				
+
 			case 38: // Arrow-Up
 				var offset = Number( offsetObject.val() );
 				if( !isNaN( offset ) ) {
@@ -173,7 +175,7 @@
 				$( this )._ws_chooseDateAfterOffset( offsetObject );
 				event.preventDefault();
 				break;
-				
+
 			default:
 				// Do default action
 				break;
@@ -186,6 +188,7 @@
 	 */
 	$.fn._ws_createInputStyle = function( counter, inputs ) {
 		var placeholder = $( inputs[ counter ] ).wrapAll( "<div class='ws-calendar-pickers-placeholder'>" ).parent();
+		var inputObject = placeholder.find( "input[type='text']:enabled" );
 
 		var template = [];
 		template.push( "<ul class='ws-calendar-pickers-wrapper'>" );
@@ -205,8 +208,6 @@
 
 		$( inputs[ counter ] ).remove();
 		placeholder.append( template.join( "" ) );
-
-		var inputObject = placeholder.find( "input[type='text']:enabled" );
 
 		if( inputObject.prop( "readonly" ) ) {
 			placeholder.find( "ul.ws-calendar-pickers-wrapper" ).addClass( "dimmed" );
@@ -779,10 +780,10 @@
 		targetCalendar.find( "select.ws-calendar-year-selector" ).change();
 
 		targetCalendar.attr( "ws-calendar-chosen-date", wsDate );
-		
+
 		// Enable auto-commit when exists one calendar
 		$( this )._ws_registerAutoCommitHandler();
-		
+
 		return $( this );
 	};
 
@@ -842,10 +843,23 @@
 
 	/*
 	 * Fetches user typed input to YYYY-MM-DD formated string.
+	 *   v1.3.0 : Strengthen the invalid format processing.
 	 */
 	$.fn._ws_fetchUserInput = function( inputValue ) {
-		return _ws_options[ "input-filter" ]( inputValue );
+		try {
+			var testDate = _ws_options[ "input-filter" ]( inputValue );
+			if( !isNaN( new Date( testDate ).getTime() ) ) {
+				return testDate;
+			} else {
+				throw {};
+			}
+		} catch( formatException ) {
+			$( this ).log( "Input format exception : " + inputValue );
+		}
+
+		return $( this )._ws_getToday().toString();
 	}
+
 
 	/*
 	 * Convert user chosen date value to proper format.
@@ -859,7 +873,7 @@
 	 * Plugin entry point.( Constructor )
 	 */
 	$.fn.wsCalendar = function( properties ) {
-		var today = new Date();
+		var offsetWrapper, today = new Date();
 
 		// Configure options of wsCalendar
 		_ws_options = $.extend({
@@ -892,37 +906,44 @@
 			, "arrow-key-enabled" : true
 		}, properties );
 
-		// Sets the temp. unique ID
-		$( this ).attr( "id", $( this )._ws_getUUID() );
+		// Multiple initialize so that make construction method simple.( ver. 1.3.0 )
+		$( this ).each( function() {
+			// Add class selector on main wrapper div.( ver. 1.3.0 )
+			// Enable any class of div objects can be transformed to wsCalendar.
+			$( this ).addClass( "ws-datepicker" );
 
-		if( $( this ).tagName() === "div" ) {
-			// Transform into the wsCalendar input style.
-			$( this )._ws_trasnformInputStyle();
-		} else {
-			// Abnormal usage notice. Terminate initializing.
-			$( this ).log( "Fieldset tag is required." );
-		}
+			// Sets the temp. unique ID
+			$( this ).attr( "id", $( this )._ws_getUUID() );
+
+			if( $( this ).tagName() === "div" ) {
+				// Transform into the wsCalendar input style.
+				$( this )._ws_trasnformInputStyle();
+			} else {
+				// Abnormal usage notice. Terminate initializing.
+				$( this ).log( "Div tag is required." );
+			}
 
 
-		// Set Picker Pane Location & Prevent text selection
-		var offsetWrapper = $(this)._ws_getOffsetWrapper( $( this ).find( "input[type='text']:enabled" ) );
-		$( this ).find( "div.ws-calendar" )
-		         .css( "left", 10 )
-		         .css( "top",  offsetWrapper.top + $( this ).height() + 5 )
-				 .attr( "unselectable", "on" )
-				 .css( { "-moz-user-select":"-moz-none"
-					   , "-moz-user-select":"none"
-					   , "-o-user-select":"none"
-					   , "-khtml-user-select":"none"
-					   , "-webkit-user-select":"none"
-					   , "-ms-user-select":"none"
-					   , "user-select":"none"
-					   }).on( "selectstart", function() { return false; } );
-		         ;
+			// Set Picker Pane Location & Prevent text selection
+			offsetWrapper = $(this)._ws_getOffsetWrapper( $( this ).find( "input[type='text']:enabled" ) );
+			$( this ).find( "div.ws-calendar" )
+			         .css( "left", 10 )
+			         .css( "top",  offsetWrapper.top + $( this ).height() + 5 )
+					 .attr( "unselectable", "on" )
+					 .css( { "-moz-user-select":"-moz-none"
+						   , "-moz-user-select":"none"
+						   , "-o-user-select":"none"
+						   , "-khtml-user-select":"none"
+						   , "-webkit-user-select":"none"
+						   , "-ms-user-select":"none"
+						   , "user-select":"none"
+						   }).on( "selectstart", function() { return false; } );
+			         ;
 
-		// Hide Picker Pane
-		// This has to be done in order to calculate offset-distance while elements are visible
-		$( this )._ws_hideCalendar();
+			// Hide Picker Pane
+			// This has to be done in order to calculate offset-distance while elements are visible
+			$( this )._ws_hideCalendar();
+		});
 
 		// Register automatic hiding handler on the body element.
 		$( this )._ws_registerAutoHidingHandler();
@@ -1191,27 +1212,27 @@
 				var userInput = $( this )._ws_parseDate( $( this )._ws_fetchUserInput( userInputObject.val() ) );
 				var calendarIndex = userInputObject.attr( "ws-calendar-index" );
 				var timeIOD = userInputObject.closest( "div.ws-datepicker" ).find( "div.ws-calendar-unit[ws-calendar-index='" + calendarIndex + "']" ).attr( "ws-calendar-iod-info" );
-				
+
 				var newDate = null;
 				var minDate = new Date( 0 );
 				if( userInput.isValid() ) {
 					newDate = new Date( userInput.value );
-					
+
 					if( event.keyCode === upperArrowCode ) {
 						newDate.setDate( userInput.value.getDate() + 1 );
 					} else if( event.keyCode === lowerArrowCode ) {
 						newDate.setDate( userInput.value.getDate() - 1 );
 					}
-	
+
 					if( timeIOD ) {
 						minDate = new Date( Number( timeIOD ) );
 						minDate.setDate( minDate.getDate() - 1 );
 					}
-	
+
 					if( minDate.getTime() >= newDate.getTime() ) {
 						newDate = new Date( Number( timeIOD ) );
 					}
-	
+
 					if( newDate ) {
 						var wsDate = $( this )._ws_getDate( newDate.getFullYear(), newDate.getMonth(), newDate.getDate(), 0, 0, 0 );
 						$( event.target ).val( wsDate.toString() );
@@ -1221,7 +1242,7 @@
 						}
 					}
 				}
-				
+
 				event.preventDefault();
 			} // end key envet handling
 		}
