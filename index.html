@@ -76,27 +76,27 @@ The wsCalendar will convert them into the wsCalendar's styled input elements.</p
 &lt;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text/javascript<span class="pl-pds">"</span></span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>./js/ws-calendar-min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;
 ...
 <span class="pl-s1">&lt;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text/javascript<span class="pl-pds">"</span></span>&gt;</span>
-<span class="pl-s1">    <span class="pl-en">$</span>( <span class="pl-s"><span class="pl-pds">"</span>.ws-datepicker<span class="pl-pds">"</span></span> ).<span class="pl-en">each</span>( <span class="pl-k">function</span>() {</span>
-<span class="pl-s1">        <span class="pl-en">$</span>( <span class="pl-v">this</span> ).<span class="pl-en">wsCalendar</span>();</span>
+<span class="pl-s1">    <span class="pl-en">$</span>( <span class="pl-k">function</span>() {</span>
+<span class="pl-s1">        <span class="pl-en">$</span>( <span class="pl-s"><span class="pl-pds">"</span>.myOwnClass<span class="pl-pds">"</span></span> ).<span class="pl-en">wsCalendar</span>();</span>
 <span class="pl-s1">    });</span>
 <span class="pl-s1">&lt;/<span class="pl-ent">script</span>&gt;</span>
 ...
 &lt;<span class="pl-ent">body</span>&gt;
     <span class="pl-c">&lt;!-- Range Selection --&gt;</span>
-    &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>ws-datepicker<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>myOwnClass<span class="pl-pds">"</span></span>&gt;
         &lt;<span class="pl-ent">input</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>dateFrom<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text<span class="pl-pds">"</span></span> <span class="pl-e">value</span>=<span class="pl-s"><span class="pl-pds">"</span>2015-12-09<span class="pl-pds">"</span></span>&gt;
          ~ &lt;<span class="pl-ent">input</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>dateTo<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text<span class="pl-pds">"</span></span> <span class="pl-e">value</span>=<span class="pl-s"><span class="pl-pds">"</span>2015-12-31<span class="pl-pds">"</span></span>&gt;
     &lt;/<span class="pl-ent">div</span>&gt;&lt;<span class="pl-ent">br</span>&gt;&lt;<span class="pl-ent">br</span>&gt;
 
     <span class="pl-c">&lt;!-- Auto Dimming --&gt;</span>
-    &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>ws-datepicker<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>myOwnClass<span class="pl-pds">"</span></span>&gt;
         &lt;<span class="pl-ent">input</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>dateBegin<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text<span class="pl-pds">"</span></span> <span class="pl-e">value</span>=<span class="pl-s"><span class="pl-pds">"</span>2015-12-09<span class="pl-pds">"</span></span> <span class="pl-e">readonly</span>&gt;
          ~ &lt;<span class="pl-ent">input</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>dateEnd<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text<span class="pl-pds">"</span></span> <span class="pl-e">value</span>=<span class="pl-s"><span class="pl-pds">"</span>2015-12-31<span class="pl-pds">"</span></span>&gt;
     &lt;/<span class="pl-ent">div</span>&gt;&lt;<span class="pl-ent">br</span>&gt;&lt;<span class="pl-ent">br</span>&gt;
 
     <span class="pl-c">&lt;!-- Single Pick --&gt;</span>
-    &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>ws-datepicker<span class="pl-pds">"</span></span>&gt;
-        &lt;<span class="pl-ent">input</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>myBirthDay<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text<span class="pl-pds">"</span></span> <span class="pl-e">value</span>=<span class="pl-s"><span class="pl-pds">"</span>2015-10-22<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>myOwnClass<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">input</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>myBirthDay<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text<span class="pl-pds">"</span></span> <span class="pl-e">value</span>=<span class="pl-s"><span class="pl-pds">"</span>2010-10-22<span class="pl-pds">"</span></span>&gt;
     &lt;/<span class="pl-ent">div</span>&gt;
 ...</pre></div>
 
@@ -128,9 +128,9 @@ The wsCalendar will convert them into the wsCalendar's styled input elements.</p
 <p><strong>wsCalendar</strong> is a sort of plug-in of jQuery. So construction could be done like below.</p>
 
 <div class="highlight highlight-source-js"><pre><span class="pl-k">&lt;</span>script type<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>text/javascript<span class="pl-pds">"</span></span><span class="pl-k">&gt;</span>
-    <span class="pl-en">$</span>( <span class="pl-s"><span class="pl-pds">"</span>div.ws-datepicker<span class="pl-pds">"</span></span> ).<span class="pl-en">wsCalendar</span>();
+    <span class="pl-en">$</span>( <span class="pl-s"><span class="pl-pds">"</span>div.specificSelector<span class="pl-pds">"</span></span> ).<span class="pl-en">wsCalendar</span>();
     <span class="pl-c">// or</span>
-    <span class="pl-en">$</span>( <span class="pl-s"><span class="pl-pds">"</span>div.ws-datepicker<span class="pl-pds">"</span></span> ).<span class="pl-en">wsCalendar</span>( { <span class="pl-c">/* options.. */</span> } );
+    <span class="pl-en">$</span>( <span class="pl-s"><span class="pl-pds">"</span>div.specificSelector<span class="pl-pds">"</span></span> ).<span class="pl-en">wsCalendar</span>( { <span class="pl-c">/* options.. */</span> } );
 <span class="pl-k">&lt;</span><span class="pl-k">/</span>script<span class="pl-k">&gt;</span></pre></div>
 
 <h2>
